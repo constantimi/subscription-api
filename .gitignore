@@ -1,0 +1,31 @@
+# Build Folders
+bin/
+obj/
+
+# User-Specific Files
+*.user
+*.userosscache
+*.suo
+*.log
+*.sln.docstates
+
+# Generated Files
+*.ide.*
+.idea/
+.vscode/
+
+# Package Folders
+*.nupkg
+*.snupkg
+*.pdb
+packages/
+.vsix/
+
+# DotNet Publish Outputs
+wwwroot/
+
+# Visual Studio Code
+.vscode/
+
+# MacOS Files
+.DS_Store
