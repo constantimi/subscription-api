@@ -65,9 +65,9 @@ public class CreateSubscriptionHandler : IRequestHandler<CreateSubscriptionComma
         CancellationToken cancellationToken)
     {
 
-        var service = await _unitOfWork.Services.GetByIdAsync(request.ServiceId) ?? throw new ServiceNotFoundException(request.ServiceId);
+        var service = await _unitOfWork.ServicesRepository.GetByIdAsync(request.ServiceId) ?? throw new ServiceNotFoundException(request.ServiceId);
 
-        var existingSubscription = await _unitOfWork.Subscriptions
+        var existingSubscription = await _unitOfWork.SubscriptionsRepository
             .FindAsync(s =>
                 s.CustomerPhoneNumber == request.CustomerPhoneNumber &&
                 s.ServiceId == request.ServiceId);
@@ -80,7 +80,7 @@ public class CreateSubscriptionHandler : IRequestHandler<CreateSubscriptionComma
             service,
             request.DurationMonths);
 
-        await _unitOfWork.Subscriptions.AddAsync(subscription);
+        await _unitOfWork.SubscriptionsRepository.AddAsync(subscription);
         await _unitOfWork.SaveChangesAsync();
 
         return Result<Subscription>.Success(subscription);

@@ -11,12 +11,12 @@ public interface IUnitOfWork : IDisposable
     /// <summary>
     /// Gets the repository for managing services.
     /// </summary>
-    IServiceRepository Services { get; }
+    IServiceRepository ServicesRepository { get; }
 
     /// <summary>
     /// Gets the repository for managing subscriptions.
     /// </summary>
-    ISubscriptionRepository Subscriptions { get; }
+    ISubscriptionRepository SubscriptionsRepository { get; }
 
     /// <summary>
     /// Saves all pending changes to the database.

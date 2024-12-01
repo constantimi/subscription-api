@@ -48,7 +48,7 @@ public class GetSubscriptionSummaryHandler : IRequestHandler<GetSubscriptionSumm
     /// <returns>A task that represents the asynchronous operation. The task result contains the subscription summary.</returns>
     public async Task<Result<SubscriptionSummary>> Handle(GetSubscriptionSummaryQuery request, CancellationToken cancellationToken)
     {
-        var subscriptions = await _unitOfWork.Subscriptions
+        var subscriptions = await _unitOfWork.SubscriptionsRepository
            .FindAllAsync(s => s.CustomerPhoneNumber == request.CustomerPhoneNumber);
 
         var summary = new SubscriptionSummary

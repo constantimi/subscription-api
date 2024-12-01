@@ -23,13 +23,13 @@ public class UnitOfWork : IUnitOfWork
     /// <summary>
     /// Gets the service repository.
     /// </summary>
-    public IServiceRepository Services =>
+    public IServiceRepository ServicesRepository =>
         _serviceRepository ??= new ServiceRepository(_context);
 
     /// <summary>
     /// Gets the subscription repository.
     /// </summary>
-    public ISubscriptionRepository Subscriptions =>
+    public ISubscriptionRepository SubscriptionsRepository =>
         _subscriptionRepository ??= new SubscriptionRepository(_context);
 
     /// <summary>

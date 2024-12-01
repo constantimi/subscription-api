@@ -1,5 +1,4 @@
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using SubscriptionAPI.Common;
 using SubscriptionAPI.Infrastructure.Data;
 using SubscriptionAPI.Models;
@@ -41,7 +40,7 @@ public class GetServicesHandler : IRequestHandler<GetServicesQuery, Result<IEnum
     {
         try
         {
-            var services = await _unitOfWork.Services.GetAllAsync();
+            var services = await _unitOfWork.ServicesRepository.GetAllAsync();
             return Result<IEnumerable<Service>>.Success(services);
         }
         catch (Exception ex)

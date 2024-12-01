@@ -52,16 +52,16 @@ public class UnsubscribeHandler : IRequestHandler<UnsubscribeCommand, Result<Uni
         UnsubscribeCommand request,
         CancellationToken cancellationToken)
     {
-        var service = await _unitOfWork.Services.GetByIdAsync(request.ServiceId)
+        var service = await _unitOfWork.ServicesRepository.GetByIdAsync(request.ServiceId)
           ?? throw new ServiceNotFoundException(request.ServiceId);
 
-        var subscription = await _unitOfWork.Subscriptions
+        var subscription = await _unitOfWork.SubscriptionsRepository
             .FindAsync(s =>
                 s.CustomerPhoneNumber == request.CustomerPhoneNumber &&
                 s.ServiceId == request.ServiceId)
             ?? throw new SubscriptionNotFoundException(request.CustomerPhoneNumber, service.Name);
 
-        _unitOfWork.Subscriptions.Remove(subscription);
+        _unitOfWork.SubscriptionsRepository.Remove(subscription);
         await _unitOfWork.SaveChangesAsync();
 
         return Result<Unit>.Success(Unit.Value);

@@ -41,7 +41,7 @@ public class GetServiceByIdHandler : IRequestHandler<GetServiceByIdQuery, Result
     {
         try
         {
-            var service = await _unitOfWork.Services.GetByIdAsync(request.Id);
+            var service = await _unitOfWork.ServicesRepository.GetByIdAsync(request.Id);
 
             if (service == null)
                 throw new ServiceNotFoundException(request.Id);
