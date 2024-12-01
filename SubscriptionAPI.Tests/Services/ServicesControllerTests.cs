@@ -8,7 +8,7 @@ using SubscriptionAPI.Models;
 using SubscriptionAPI.Common;
 using Xunit;
 
-namespace SubscriptionAPI.Tests;
+namespace SubscriptionAPI.Tests.Services;
 
 public class ServicesControllerTests
 {

@@ -4,7 +4,7 @@ using SubscriptionAPI.Models;
 using SubscriptionAPI.Services;
 using Xunit;
 
-namespace SubscriptionAPI.Tests;
+namespace SubscriptionAPI.Tests.Services;
 
 public class DiscountServiceTests
 {
