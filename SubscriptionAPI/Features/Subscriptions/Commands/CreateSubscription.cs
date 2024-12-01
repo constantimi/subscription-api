@@ -15,6 +15,9 @@ public record CreateSubscriptionCommand(
 
 public class CreateSubscriptionValidator : AbstractValidator<CreateSubscriptionCommand>
 {
+    // This code snippet defines a constructor for a class named CreateSubscriptionValidator. 
+    // This class is likely part of a validation framework, such as FluentValidation, used to ensure
+    // that the properties of a CreateSubscription object meet certain criteria before processing.
     public CreateSubscriptionValidator()
     {
         RuleFor(x => x.CustomerPhoneNumber)
