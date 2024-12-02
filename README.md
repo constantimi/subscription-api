@@ -1,4 +1,4 @@
-# Subscription API
+# Clean Architecture API
 
 This API manages SMS-based subscription services, enabling customers to subscribe, unsubscribe, and view their active subscriptions while applying promotional discounts.
 
@@ -108,12 +108,14 @@ Retrieve a summary of the customer's active subscriptions.
 
 ### 2. CQRS with MediatR
 
+Command and Query Responsibility Segregation pattern separates read and update operations for a data store. Implementing CQRS in your application can maximize its performance, scalability, and security. The flexibility created by migrating to CQRS allows a system to better evolve over time and prevents update commands from causing merge conflicts at the domain level.
+
 -   **Commands**: Handle state-changing operations (e.g., `SubscribeCommand`).
 -   **Queries**: Handle read-only operations (e.g., `GetSubscriptionSummaryQuery`).
 
-### 3. Repository Pattern
+### 3. Repository and UnitOfWork Pattern
 
--   Abstracts data access to ensure testability and separation of concerns.
+-   The repository and unit of work patterns are intended to create an abstraction layer between the data access layer and the business logic layer of an application. Implementing these patterns can ensure testability and separation of concerns
 
 ### 4. Middleware Pipeline
 
