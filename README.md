@@ -1,4 +1,4 @@
-# Clean Architecture API
+# Subscription API
 
 This API manages SMS-based subscription services, enabling customers to subscribe, unsubscribe, and view their active subscriptions while applying promotional discounts.
 
